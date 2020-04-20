@@ -1,7 +1,7 @@
 
 from flask import Blueprint, jsonify, request, render_template, redirect #, flash
 
-from models import Twitter, parse_records, db
+from web_app.models import Twitter, parse_records, db
 
 tweet_routes = Blueprint("tweet_routes", __name__)
 
@@ -20,14 +20,14 @@ def list_tweets_for_humans():
 
 @tweet_routes.route("/tweets/new")
 def new_tweet():
-    return render_template("new_tweet.html")
+    return render_template("new_tweets.html")
 
 @tweet_routes.route("/tweets/create", methods=["POST"])
 def create_book():
     print("FORM DATA:", dict(request.form))
 
-    new_tweet = Twitter(tweet=request.form["Tweet"], user=request.form["User_Name"])
-    db.session.add(new_book)
+    new_tweet = Twitter(user=request.form["User_Name"], tweet=request.form["Tweet"])
+    db.session.add(new_tweet)
     db.session.commit()
 
     #return jsonify({

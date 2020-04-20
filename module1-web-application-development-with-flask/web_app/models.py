@@ -6,8 +6,8 @@ migrate = Migrate()
 
 class Twitter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    tweet = db.Column(db.String(128))
     user = db.Column(db.String(128))
+    tweet = db.Column(db.String(128))
 
 def parse_records(database_records):
     """

@@ -1,7 +1,7 @@
 
 
 {% extends "bootstrap_layout.html" %}
-{% set active_page = "new_tweet" %}
+{% set active_page = "new_tweets" %}
 
 {% block content %}
 
@@ -12,10 +12,10 @@
     <form action="/tweets/create" method="POST">
 
         <label>User:</label>
-        <input type="text" name="tweet_title" placeholder="User XYZ" value="User XYZ">
+        <input type="text" name="User_Name" placeholder="User XYZ" value="User XYZ">
 
         <label>Tweet:</label>
-        <input type="text" name="tweet_title" placeholder="Tweet XYZ" value="Tweet XYZ">
+        <input type="text" name="Tweet" placeholder="Tweet XYZ" value="Tweet XYZ">
         <button>Submit</button>
     </form>
 
