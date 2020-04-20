@@ -4,14 +4,14 @@
 {% block content %}
 
     <h1>My Tweets Page</h1>
-    {% if books %}
+    {% if tweets %}
         <ul>
-        {% for book in books %}
-            <li>{{ book.title }}</li>
+        {% for x in tweets %}
+            <li>{{ x.tweet }}</li>
         {% endfor %}
         </ul>
     {% else %}
-        <p>Books not found.</p>
+        <p>tweets not found.</p>
     {% endif %}
 
 {% endblock %}
