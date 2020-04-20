@@ -1,0 +1,17 @@
+{% extends "bootstrap_layout.html" %}
+{% set active_page = "tweets" %}
+
+{% block content %}
+
+    <h1>My Tweets Page</h1>
+    {% if books %}
+        <ul>
+        {% for book in books %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Books not found.</p>
+    {% endif %}
+
+{% endblock %}
