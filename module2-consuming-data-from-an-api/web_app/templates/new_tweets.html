@@ -1,0 +1,22 @@
+
+
+{% extends "bootstrap_layout.html" %}
+{% set active_page = "new_tweets" %}
+
+{% block content %}
+
+    <h1>New Tweet Page</h1>
+
+    <p>Please fill out the form and submit to create a new tweet!</p>
+
+    <form action="/tweets/create" method="POST">
+
+        <label>User:</label>
+        <input type="text" name="User_Name" placeholder="User XYZ" value="User XYZ">
+
+        <label>Tweet:</label>
+        <input type="text" name="Tweet" placeholder="Tweet XYZ" value="Tweet XYZ">
+        <button>Submit</button>
+    </form>
+
+{% endblock %}
