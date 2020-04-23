@@ -8,15 +8,11 @@ twitter_routes = Blueprint("twitter_routes", __name__)
 
 @twitter_routes.route("/users/<screen_name>/fetch")
 def fetch_user_data(screen_name=None):
-
-
-
-
     print(screen_name)
 
     api = api_client()
     twitter_user = api.get_user(screen_name)
-    statuses = api.user_timeline(screen_name, tweet_mode="extended", count=150, exclude_replies=True, include_rts=False)
+    statuses = api.user_timeline(screen_name, tweet_mode="extended", count=150)
     print("Statuses count", len(statuses))
 
 
@@ -65,10 +61,6 @@ def fetch_user_data(screen_name=None):
 
     return "OK"
 
-# web_app/routes/twitter_routes.py
-
-# ...
-
 @twitter_routes.route("/users")
 def list_users_friendly():
     db_users = User.query.all()
@@ -86,7 +78,7 @@ def get_user(screen_name=None):
 
     
     db_user = User.query.filter(User.screen_name == screen_name).one()
-    breakpoint()
+    
     # ...
 
     return render_template("user.html", user=db_user, tweets=statuses) # tweets=db_tweets
